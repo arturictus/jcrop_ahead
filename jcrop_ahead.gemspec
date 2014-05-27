@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
   s.version     = JcropAhead::VERSION
   s.authors     = ["Artur Pañach"]
   s.email       = ["arturictus@gmail.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of JcropAhead."
+  s.homepage    = "https://github.com/arturictus/jcrop_ahead"
+  s.summary     = "adds jcrop 0.9.12 to your rails app, add any crop to your application  to any model"
   s.description = "TODO: Description of JcropAhead."
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
