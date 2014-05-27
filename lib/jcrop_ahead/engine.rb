@@ -10,13 +10,22 @@ module JcropAhead
     end
 
     #
-    #Load all helpers
+    # Load all helpers
     #
-    initializer 'main_app.action_controller' do |app|
+    #initializer 'main_app.action_controller' do |app|
       ActiveSupport.on_load :action_controller do
         helper JcropAhead::ApplicationHelper
       end
-    end
+    #end
+
+    #
+    # Extend ActiveRecord
+    #
+    #initializer "jcrop_ahead.active_record" do
+	    # ActiveSupport.on_load :active_record do
+		   #  require 'jcrop_ahead/activerecord'
+	    # end
+	#end
 
     #
     # Get from main app what you need
