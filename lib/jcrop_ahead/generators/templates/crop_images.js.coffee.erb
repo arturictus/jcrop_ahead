@@ -1,0 +1,29 @@
+start_jcrop = ->
+  new AvatarCropper()
+
+class AvatarCropper
+  constructor: ->
+    $('#crop_image').Jcrop
+      aspectRatio: 2.2/1
+      setSelect: [0, 0, 220, 100]
+      allowResize: true
+      minSize: [220, 100]
+      onSelect: @update
+      onChange: @update
+  
+  update: (coords) =>
+    $('#attachament_crop_x').val(coords.x)
+    $('#attachament_crop_y').val(coords.y)
+    $('#attachament_crop_w').val(coords.w)
+    $('#attachament_crop_h').val(coords.h)
+    @updatePreview(coords)
+
+  updatePreview: (coords) =>
+          $('#preview').css
+                  width: Math.round(100/coords.w * $('#crop_image').width()) + 'px'
+                  height: Math.round(100/coords.h * $('#crop_image').height()) + 'px'
+                  marginLeft: '-' + Math.round(100/coords.w * coords.x) + 'px'
+                  marginTop: '-' + Math.round(100/coords.h * coords.y) + 'px'
+
+$(document).ready start_jcrop
+$(document).on "page_load", start_jcrop

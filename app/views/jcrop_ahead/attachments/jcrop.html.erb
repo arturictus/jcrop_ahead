@@ -1,0 +1,25 @@
+
+<%= link_to("Cancelar", root_path, :class =>"btn btn-default" ) %>
+
+<h1>Recortar imagen</h1>
+
+<%= image_tag(@attachament.image_url(:large), :id =>"crop_image") %>
+
+<% if false %>
+
+<h4>Preview</h4>
+<div style="width:220px; height:100px; overflow:hidden">
+  <%= image_tag @attachament.image.url(:large), :id => "preview" %>
+</div>
+<% end %>
+
+<hr>
+
+<%= form_for @attachament do |f| %>
+  <% %w[x y w h].each do |attribute| %>
+    <%= f.hidden_field "crop_#{attribute}" %>
+  <% end %>
+  <div class="actions">
+    <%= f.submit "Guardar", class: "btn btn-primary" %>
+  </div>
+<% end %>
